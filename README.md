@@ -51,7 +51,7 @@ ServiHub/
 ### Clone Repository
 
 ```bash
-git clone https://github.com/your-username/servihub.git
+git clone https://github.com/abhi-bochare/ServiHub-Local-Service-Finder.git
 cd ServiHub
 ```
 
