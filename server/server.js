@@ -14,12 +14,6 @@ require("dotenv").config();
 
 const app = express();
 const server = http.createServer(app);
-const io = socketIo(server, {
-  cors: {
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
-    methods: ["GET", "POST"],
-  },
-});
 
 // Connect to MongoDB
 connectDB();
@@ -30,6 +24,14 @@ const allowedOrigins = [
   "http://localhost:3000",
   "http://localhost:5173",
 ].filter(Boolean);
+
+const io = socketIo(server, {
+  cors: {
+    origin: allowedOrigins,
+    methods: ["GET", "POST"],
+    credentials: true,
+  },
+});
 
 app.use(
   cors({
